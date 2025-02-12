@@ -111,6 +111,5 @@ async def generate_tts(request: TTSRequest, zonos_model: Zonos = Depends(get_zon
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) # Or your desired port
+# Removed the if __name__ == "__main__": block and uvicorn.run()
+# Railway's startCommand in railway.json will handle starting the server (Hypercorn in this case)
